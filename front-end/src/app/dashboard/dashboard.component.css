@@ -1,0 +1,13 @@
+:host ::ng-deep .hourly {
+  display: inline;
+  width: 100px;
+  background-color: red;
+  color: red;
+}
+
+:host ::ng-deep .daily {
+  display: inline;
+  width: 100px;
+  background-color: blue;
+  color: red;
+}
