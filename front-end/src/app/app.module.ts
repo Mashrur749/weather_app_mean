@@ -11,6 +11,7 @@ import { WeatherDailyComponent } from './weather-daily/weather-daily.component';
 import { WeatherHourlyComponent } from './weather-hourly/weather-hourly.component';
 import { WeatherCurrentComponent } from './weather-current/weather-current.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     WeatherDailyComponent,
     WeatherHourlyComponent,
     WeatherCurrentComponent,
-    DashboardComponent
+    DashboardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
