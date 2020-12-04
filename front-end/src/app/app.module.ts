@@ -24,7 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WeatherHourlyComponent,
     WeatherCurrentComponent,
     DashboardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
