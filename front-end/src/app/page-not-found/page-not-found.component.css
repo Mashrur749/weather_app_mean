@@ -1,0 +1,13 @@
+div{
+    width: 100vw;
+    height: 90vh;
+    text-align: center;
+    padding-top: 10%;
+}
+
+img {
+    opacity: 0.3;
+    width: 100%;
+    z-index: -1;
+    position: fixed;
+}
