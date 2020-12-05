@@ -4,9 +4,12 @@
     </div>
 
     <div class="card-body">
-        <p class="card-text"><b>Temperature:</b> 000000</p>
-        <p class="card-text"><b>Humidity:</b> 00000</p>
-        <p class="card-text"><b>Wind:</b> 00000</p>
-        <p class="card-text"><b>Description:</b> Lorem ipsum dolor sit amet consectetur adipisicing elite</p>
+        <img [attr.src]="this.weatherIcon">
+        <p class="card-text"><b>Temperature:</b> {{currWeather.temp}}°C</p>
+        <p class="card-text"><b>Feels Like:</b> {{currWeather.feels_like}}°C</p>
+        <p class="card-text"><b>Humidity:</b> {{currWeather.humidity}}%</p>
+        <p class="card-text"><b>Wind:</b> {{currWeather.wind_speed}}Km/hr</p>
+        <p class="card-text"><b>Wind Direction:</b> {{currWeather.wind_deg}}</p>
+        <p class="card-text"><b>Description:</b> {{currWeather.weather[0].description}}</p>
     </div>
 </div>

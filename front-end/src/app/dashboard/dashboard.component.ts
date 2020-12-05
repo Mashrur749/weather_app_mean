@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { WeatherDataManagerService } from "../weather-data-manager.service"
+import cityData from "../data/cities.json"
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  weatherData;
+  private weatherDataSub; 
+  cities = cityData;
+  currCity = this.cities[0];
 
-  ngOnInit(): void {
+  setCity(e){
+    this.currCity = e.target.dataset;
+    this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
   }
 
+  constructor(private data: WeatherDataManagerService) {
+  }
+  
+  ngOnInit(): void {
+    this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
+  }
+  ngOnDestroy(){
+    this.weatherDataSub.unsubscribe();
+  }
 }

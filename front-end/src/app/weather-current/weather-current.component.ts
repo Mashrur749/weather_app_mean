@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-weather-current',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherCurrentComponent implements OnInit {
 
+  @Input() currWeather;
+  weatherIcon:string;
   constructor() { }
 
   ngOnInit(): void {
+    this.weatherIcon = "http://openweathermap.org/img/wn/" + this.currWeather.weather[0].icon + "@2x.png"
   }
 
 }

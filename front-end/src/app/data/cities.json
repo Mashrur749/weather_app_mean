@@ -1,0 +1,240 @@
+[
+    {
+      "id": 1,
+      "city": "Alert",
+      "province": "NU",
+      "lat": 82.3,
+      "lon": -62.2
+    },
+    {
+      "id": 2,
+      "city": "Calgary",
+      "province": "AB",
+      "lat": 51.03,
+      "lon": -114.04
+    },
+    {
+      "id": 3,
+      "city": "Charlottetown",
+      "province": "PE",
+      "lat": 46.14,
+      "lon": -63.09
+    },
+    {
+      "id": 4,
+      "city": "Edmonton",
+      "province": "AB",
+      "lat": 53.32,
+      "lon": -113.3
+    },
+    {
+      "id": 5,
+      "city": "Eureka",
+      "province": "NU",
+      "lat": 79.59,
+      "lon": -85.56
+    },
+    {
+      "id": 6,
+      "city": "Fort McMurray",
+      "province": "AB",
+      "lat": 56.44,
+      "lon": -111.23
+    },
+    {
+      "id": 7,
+      "city": "Fredericton",
+      "province": "New Brunswick",
+      "lat": 45.57,
+      "lon": -66.4
+    },
+    {
+      "id": 8,
+      "city": "Grande Prairie",
+      "province": "AB",
+      "lat": 55.1,
+      "lon": -118.48
+    },
+    {
+      "id": 9,
+      "city": "Grise Fiord",
+      "province": "NU",
+      "lat": 76.25,
+      "lon": -82.54
+    },
+    {
+      "id": 10,
+      "city": "Halifax",
+      "province": "NS",
+      "lat": 44.51,
+      "lon": -63.12
+    },
+    {
+      "id": 11,
+      "city": "Iqaluit",
+      "province": "NU",
+      "lat": 63.45,
+      "lon": -68.31
+    },
+    {
+      "id": 12,
+      "city": "Kamloops",
+      "province": "BC",
+      "lat": 50.41,
+      "lon": -120.2
+    },
+    {
+      "id": 13,
+      "city": "Kelowna",
+      "province": "BC",
+      "lat": 49.53,
+      "lon": -119.3
+    },
+    {
+      "id": 14,
+      "city": "Moncton",
+      "province": "New Brunswick",
+      "lat": 46.08,
+      "lon": -64.46
+    },
+    {
+      "id": 15,
+      "city": "Montreal",
+      "province": "QC",
+      "lat": 45.3,
+      "lon": -73.34
+    },
+    {
+      "id": 16,
+      "city": "North Bay",
+      "province": "ON",
+      "lat": 46.18,
+      "lon": -79.27
+    },
+    {
+      "id": 17,
+      "city": "Ottawa",
+      "province": "ON",
+      "lat": 45.25,
+      "lon": -75.41
+    },
+    {
+      "id": 18,
+      "city": "Quebec City",
+      "province": "QC",
+      "lat": 46.49,
+      "lon": -71.13
+    },
+    {
+      "id": 19,
+      "city": "Regina",
+      "province": "SK",
+      "lat": 50.27,
+      "lon": -104.36
+    },
+    {
+      "id": 20,
+      "city": "Saint John",
+      "province": "New Brunswick",
+      "lat": 45.17,
+      "lon": -66.05
+    },
+    {
+      "id": 21,
+      "city": "Saskatoon",
+      "province": "SK",
+      "lat": 52.08,
+      "lon": -106.41
+    },
+    {
+      "id": 22,
+      "city": "Sault Ste. Marie",
+      "province": "ON",
+      "lat": 46.32,
+      "lon": -84.21
+    },
+    {
+      "id": 23,
+      "city": "St. John's",
+      "province": "NL",
+      "lat": 47.34,
+      "lon": -52.42
+    },
+    {
+      "id": 24,
+      "city": "Sudbury",
+      "province": "ON",
+      "lat": 46.29,
+      "lon": -81.01
+    },
+    {
+      "id": 25,
+      "city": "Thunder Bay",
+      "province": "ON",
+      "lat": 48.23,
+      "lon": -89.15
+    },
+    {
+      "id": 26,
+      "city": "Toronto",
+      "province": "ON",
+      "lat": 43.42,
+      "lon": -79.24
+    },
+    {
+      "id": 27,
+      "city": "Tuktoyaktuk",
+      "province": "NT",
+      "lat": 69.27,
+      "lon": -133.02
+    },
+    {
+      "id": 28,
+      "city": "Vancouver",
+      "province": "BC",
+      "lat": 49.15,
+      "lon": -123.06
+    },
+    {
+      "id": 39,
+      "city": "Victoria",
+      "province": "BC",
+      "lat": 48.26,
+      "lon": -123.22
+    },
+    {
+      "id": 30,
+      "city": "Whitehorse",
+      "province": "YT",
+      "lat": 60.43,
+      "lon": -135.03
+    },
+    {
+      "id": 31,
+      "city": "Windsor",
+      "province": "ON",
+      "lat": 42.17,
+      "lon": -83
+    },
+    {
+      "id": 32,
+      "city": "Winnipeg",
+      "province": "MB",
+      "lat": 49.54,
+      "lon": -97.08
+    },
+    {
+      "id": 33,
+      "city": "Yarmouth",
+      "province": "NS",
+      "lat": 43.5,
+      "lon": -66.07
+    },
+    {
+      "id": 34,
+      "city": "Yellowknife",
+      "province": "NT",
+      "lat": 62.27,
+      "lon": -114.24
+    }
+  ]

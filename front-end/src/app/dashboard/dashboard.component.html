@@ -1,17 +1,19 @@
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown
+        {{this.currCity.city}}, {{this.currCity.province}}
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Action</button>
-        <button class="dropdown-item" type="button">Another action</button>
-        <button class="dropdown-item" type="button">Something else here</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">        
+        <div *ngFor="let city of this.cities">
+            <button class="dropdown-item" type="button" 
+                [attr.data-city]="city.city" 
+                [attr.data-province]="city.province" 
+                [attr.data-lat]="city.lat" 
+                [attr.data-lon]="city.lon" 
+                (click)="setCity($event)">{{city.city}}</button>
+        </div>
     </div>
 </div>
 
-<app-weather-current></app-weather-current>
-
-
-<app-weather-hourly></app-weather-hourly>
-
-<app-weather-daily></app-weather-daily>
+<app-weather-current [currWeather]="this.weatherData.current"></app-weather-current>
+<app-weather-hourly [hourlyWeather]="this.weatherData.hourly"></app-weather-hourly>
+<app-weather-daily [dailyWeather]="this.weatherData.daily"></app-weather-daily>
