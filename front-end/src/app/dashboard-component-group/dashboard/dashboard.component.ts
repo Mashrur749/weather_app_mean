@@ -12,11 +12,12 @@ export class DashboardComponent implements OnInit {
   weatherData;
   private weatherDataSub; 
   cities = cityData;
-  currCity = this.cities[0];
+  currCity = this.cities[25];
 
   setCity(e){
     this.currCity = e.target.dataset;
     this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
+    //api call to change the user city
   }
 
   constructor(private data: WeatherDataManagerService) {

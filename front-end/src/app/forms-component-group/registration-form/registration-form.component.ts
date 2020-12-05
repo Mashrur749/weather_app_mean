@@ -45,7 +45,7 @@ export class RegistrationFormComponent implements OnInit {
     this.user={
       username: "",
       password: "",
-      location: ""
+      cityId: ""
     }
   }
 

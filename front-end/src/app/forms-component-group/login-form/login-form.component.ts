@@ -19,16 +19,15 @@ export class LoginFormComponent implements OnInit {
     }else{
       this.passwordRequiredError = false;
     }
-
   }
 
   constructor() { }
   ngOnInit(): void {
     this.passwordRequiredError = false;
     this.user={
-      username: "theDude",
-      password: "theDudePass",
-      location: "dudesLocation"
+      username: "",
+      password: "",
+      cityId: ""
     }
   }
 }
