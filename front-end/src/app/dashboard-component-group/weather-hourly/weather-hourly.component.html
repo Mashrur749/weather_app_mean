@@ -1,0 +1,21 @@
+
+
+<table class="table table-striped">
+<thead  style="text-align: center;">
+    <th colspan="4">  Hourly (48 hours) Forecast </th>
+    <tr>
+        <th colspan="1">  Sign </th>
+        <th colspan="1">  Time </th>
+        <th colspan="1">  Description </th>
+        <th colspan="1">  Feels Like </th>
+    </tr>
+</thead>
+<tbody>
+        <tr *ngFor="let weather of hourlyWeather">
+            <td><img [attr.src]="this.getIcon(weather)"></td>
+            <td>{{this.getDate(weather.dt)}} </td>
+            <td>{{weather.weather[0].description}}</td>
+            <td>{{weather.feels_like}}</td>
+        </tr>   
+</tbody>
+</table>

@@ -1,0 +1,11 @@
+.card{
+    display: block;
+    width: 70vw;
+    margin: auto;
+    margin-top: 2em;
+}
+
+img{
+    margin: 0 5em;
+    background-color: rgba(223, 213, 27, 0.6);
+}

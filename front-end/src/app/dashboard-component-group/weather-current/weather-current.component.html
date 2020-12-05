@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+        Current Weather
+    </div>
+
+    <div class="card-body">
+        <table>
+
+            <tbody>
+                <tr>
+                    <td colspan="3">
+                        <img [attr.src]="this.weatherIcon">
+                    </td>
+                    <td>
+                        <p class="card-text"><b>Temperature:</b> {{currWeather.temp}}°C</p>
+                        <p class="card-text"><b>Feels Like:</b> {{currWeather.feels_like}}°C</p>
+                        <p class="card-text"><b>Humidity:</b> {{currWeather.humidity}}%</p>
+                        <p class="card-text"><b>Wind:</b> {{currWeather.wind_speed}}Km/hr</p>
+                        <p class="card-text"><b>Wind Direction:</b> {{currWeather.wind_deg}}</p>
+                        <p class="card-text"><b>Description:</b> {{currWeather.weather[0].description}}</p>    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

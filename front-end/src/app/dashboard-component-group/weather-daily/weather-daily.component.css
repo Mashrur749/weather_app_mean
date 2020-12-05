@@ -1,0 +1,10 @@
+table {
+    width: 40%;
+    float: left;
+    margin: 5%;
+}
+
+img{
+    margin: 2em 5em;
+    background-color: rgba(223, 213, 27, 0.6);
+}
