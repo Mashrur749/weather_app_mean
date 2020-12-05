@@ -1,11 +1,12 @@
 
-<form class="text-center border border-light p-5">
+<form #f='ngForm' class="text-center border border-light p-5" (ngSubmit)='onSubmit(f)'>
 
     <p class="h4 mb-4">Login</p>
 
-    <input type="text" id="FormName" class="form-control mb-4" placeholder="Username">
-
-    <input type="password" id="FormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="email" #name="ngModel" id="FormName" name="username" [(ngModel)]="user.username" class="form-control mb-4" placeholder="Username" required>
+    <p *ngIf="name.errors?.required" class="help-block" > <b>Please Provide a valid email address</b> </p>
+    <input type="password" name="password" [(ngModel)]="user.password" id="FormPassword" class="form-control mb-4" placeholder="Password" required>
+    <p *ngIf="passwordRequiredError" class="help-block" > <b> Password is required </b> </p>
 
     <button type="button" class="btn btn-primary">Login</button>
 </form>

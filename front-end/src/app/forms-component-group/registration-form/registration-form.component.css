@@ -4,3 +4,9 @@ form {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   margin-top: 5%;
 }
+
+.help-block{
+  width: 100%;
+  text-align: left;
+  color: rgba(255, 97, 97, 0.596);
+}

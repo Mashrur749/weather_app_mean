@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User, Location} from '../../User';
+import {User} from '../../User';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-login-form',
@@ -8,9 +9,26 @@ import {User, Location} from '../../User';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  user: User;
+  passwordRequiredError:boolean;
+  
+  onSubmit(f:NgForm){
+    if(f.value.password.length < 1){
+      this.passwordRequiredError = true;
+    }else{
+      this.passwordRequiredError = false;
+    }
+
   }
 
+  constructor() { }
+  ngOnInit(): void {
+    this.passwordRequiredError = false;
+    this.user={
+      username: "theDude",
+      password: "theDudePass",
+      location: "dudesLocation"
+    }
+  }
 }
