@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   updateUserCity(userId:string, cityId:string): Observable<any>{
-    return this.http.put<any>(`${userURL}/user/id=${userId}`, cityId);
+    return this.http.put<any>(`${userURL}/${userId}`, {cityId: cityId});
   }
 
   login(user: User): Observable<any> {

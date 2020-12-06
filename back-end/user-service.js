@@ -70,9 +70,7 @@ module.exports.updateUserById = function(userId, cityId){
                 console.log(err)
                 reject(err);
             }
-            console.log(user)
-            console.log("updating city")
-            console.log(user)
+
             resolve(user);
         })
     });

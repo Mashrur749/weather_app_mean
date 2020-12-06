@@ -87,11 +87,21 @@ app.post("/user/login", (req, res) => {
 });
 
 app.put("/user/:id", (req, res) => {
-    
-
     userService.updateUserById(req.params.id, req.body.cityId)
         .then((user) => {
-            res.json({ "message": "User city updated" });
+            var payload = { 
+                _id: user._id,
+                userName: user.userName,
+                cityId: user.cityId
+            };
+            
+            var token = jwt.sign(payload, jwtOptions.secretOrKey);
+
+            res.json({ 
+                "message": "User city updated",
+                token: token 
+            });
+
         }).catch((msg) => {
             res.status(422).json({ "message": msg });
         });

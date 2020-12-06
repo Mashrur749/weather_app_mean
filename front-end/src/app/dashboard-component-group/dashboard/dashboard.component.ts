@@ -18,18 +18,25 @@ export class DashboardComponent implements OnInit {
 
   
   setCity(e){
-    this.currCity = this.getCityById(e.target.dataset.cityId);
     this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
     //api call to change the user city
     console.log(this.auth.readToken())
-    this.auth.updateUserCity(this.auth.readToken()._id, this.auth.readToken().cityId);
+    this.auth.updateUserCity(this.auth.readToken()._id, e.target.dataset.cityId)
+      .subscribe(
+        (data)=> {
+          // store the returned token in local storage as 'access_token'
+          localStorage.setItem('access_token', data.token);
+          console.log(this.auth.readToken())
+          this.currCity = this.getCityById(this.auth.readToken().cityId);
+        },
+      );
   }
 
   getCityById(id){
     let foundCity;
-    this.cities.forEach(e => {
+    this.cities.forEach((e,idx) => {
       if(e.id == id){
-        foundCity = e;
+        foundCity = this.cities[idx+1];
       }
     })
     return foundCity;
