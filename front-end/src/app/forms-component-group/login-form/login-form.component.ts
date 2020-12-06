@@ -24,9 +24,7 @@ export class LoginFormComponent implements OnInit {
       this.passwordRequiredError = true;
     }else{
       this.passwordRequiredError = false;
-    }
-    console.log("submit")
-    
+    }   
     
     this.auth.login(this.user).subscribe(
       (success) => {

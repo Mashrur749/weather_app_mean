@@ -52,4 +52,9 @@ export class AuthService {
     return this.http.post<any>(`${userURL}/register`, user);
   }
 
+  logout(){
+    localStorage.removeItem('access_token');
+  }
+
+
 }
