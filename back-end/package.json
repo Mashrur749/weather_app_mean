@@ -1,13 +1,12 @@
 {
-  "name": "simple-api",
+  "name": "weather-user-api",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "WEB422 Seneca College",
+  "author": "Musaddiqur Rahman",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,5 +16,10 @@
     "mongoose": "^5.4.20",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"
-  }
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {},
+  "description": ""
 }
