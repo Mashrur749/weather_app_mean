@@ -63,13 +63,16 @@ module.exports.registerUser =  function (userData) {
 };
 
 
-module.exports.updateUserById = function(userData){
+module.exports.updateUserById = function(userId, cityId){
     return new Promise(function (resolve, reject) {
-        User.findById(userData.id, (err, user) => {
+        User.findOneAndUpdate({_id: userId}, {cityId: cityId}, (err, user) => {
             if(err){
+                console.log(err)
                 reject(err);
-            }``
-            user.cityId = userData.cityId;
+            }
+            console.log(user)
+            console.log("updating city")
+            console.log(user)
             resolve(user);
         })
     });

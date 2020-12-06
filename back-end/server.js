@@ -87,7 +87,9 @@ app.post("/user/login", (req, res) => {
 });
 
 app.put("/user/:id", (req, res) => {
-    userService.updateUserById(req.body)
+    
+
+    userService.updateUserById(req.params.id, req.body.cityId)
         .then((user) => {
             res.json({ "message": "User city updated" });
         }).catch((msg) => {

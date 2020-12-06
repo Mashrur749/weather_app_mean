@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../User';
 import { NgForm } from "@angular/forms";
+import { AuthService } from '../../auth.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-registration-form',
@@ -14,6 +16,7 @@ export class RegistrationFormComponent implements OnInit {
   passwordNotMatchError: boolean;
   duplicateUserError: boolean;
   passwordRequiredError: boolean;
+  warning: any;
 
   onSubmit(f: NgForm): void {
     if(f.value.password.length < 1){
@@ -28,14 +31,25 @@ export class RegistrationFormComponent implements OnInit {
       this.passwordNotMatchError = false;
     }
 
-    if(this.passwordNotMatchError === false && this.user.username.length > 0){
+    if(this.passwordNotMatchError === false && this.user.userName.length > 0){
+      f.value.password2 = this.passwordMatch;
       //send api request
+      this.auth.register(f.value).subscribe(
+        (success) => {
+          // redirect to the "vehicles" route
+          this.router.navigate(['/login']);
+        },
+        (err) => {
+          console.log(err.error.message)
+          this.warning = err.error.message;
+        }
+      )
+      
       //if username exists duplicate user = true
     }
     
-    console.log(f.value);
   }
-  constructor() { }
+  constructor(private auth:AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.passwordNotMatchError = false;
@@ -43,7 +57,7 @@ export class RegistrationFormComponent implements OnInit {
     this.passwordRequiredError = false;
 
     this.user={
-      username: "",
+      userName: "",
       password: "",
       cityId: ""
     }

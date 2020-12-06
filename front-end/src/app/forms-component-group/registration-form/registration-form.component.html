@@ -1,7 +1,7 @@
 
 <form #f='ngForm' class="text-center border border-light p-5" (ngSubmit)='onSubmit(f)'>
     <p class="h4 mb-4">Sign in</p>
-    <input type="email" #name="ngModel" id="FormName" name="username" [(ngModel)]="user.username" class="form-control mb-4" placeholder="Username" required>
+    <input type="email" #name="ngModel" id="FormName" name="userName" [(ngModel)]="user.userName" class="form-control mb-4" placeholder="Username" required>
     <p *ngIf="name.errors?.required" class="help-block" > <b>Please Provide a valid email address</b> </p>
     <p *ngIf="this.duplicateUserError" class="help-block" > <b>The username already exists</b> </p>
 
@@ -10,6 +10,8 @@
 
     <input type="password" name="passwordMatch" [(ngModel)]="passwordMatch" id="MatchFormPassword" class="form-control mb-4" placeholder="Password" required>
     <p class="help-block" *ngIf="passwordNotMatchError"><b>Passwords don't match</b></p>
+    
+    <p *ngIf="this.warning" class="help-block"> <b> {{this.warning}} </b></p>
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
 

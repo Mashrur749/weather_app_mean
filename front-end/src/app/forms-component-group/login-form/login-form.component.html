@@ -3,10 +3,13 @@
 
     <p class="h4 mb-4">Login</p>
 
-    <input type="email" #name="ngModel" id="FormName" name="username" [(ngModel)]="user.username" class="form-control mb-4" placeholder="Username" required>
+    <input type="email" #name="ngModel" id="FormName" name="userName" [(ngModel)]="user.userName" class="form-control mb-4" placeholder="Username" required>
     <p *ngIf="name.errors?.required" class="help-block" > <b>Please Provide a valid email address</b> </p>
     <input type="password" name="password" [(ngModel)]="user.password" id="FormPassword" class="form-control mb-4" placeholder="Password" required>
     <p *ngIf="passwordRequiredError" class="help-block" > <b> Password is required </b> </p>
 
-    <button type="button" class="btn btn-primary">Login</button>
+    <p *ngIf="this.warning" class="help-block"> <b> {{this.warning}} </b></p>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
 </form>

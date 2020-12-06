@@ -26,7 +26,6 @@ export class WeatherDailyComponent implements OnInit {
 
 
     dateString = `${dateFull.getDate()}, ${month[dateFull.getMonth()]} ${dateFull.getDate()}${nth(dateFull.getDate())}` 
-    console.log(dateFull)
     return dateString;
   }
 
@@ -37,7 +36,6 @@ export class WeatherDailyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("dailyWeather: ", this.dailyWeather)
   }
 
 }
