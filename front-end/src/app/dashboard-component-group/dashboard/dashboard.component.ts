@@ -21,6 +21,8 @@ export class DashboardComponent implements OnInit {
     this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
     //api call to change the user city
     this.currCity = this.cities[e.target.dataset.cityId-1];
+    this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
+
     this.auth.updateUserCity(this.auth.readToken()._id, e.target.dataset.cityId)
       .subscribe(
         (data)=> {
@@ -47,9 +49,9 @@ export class DashboardComponent implements OnInit {
   
   ngOnInit(): void {
     this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
+    this.currCity = this.getCityById(this.auth.readToken().cityId);
   }
   ngOnDestroy(){
     this.weatherDataSub.unsubscribe();
-    this.currCity = this.getCityById(this.auth.readToken().cityId);
   }
 }

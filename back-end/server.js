@@ -54,6 +54,9 @@ app.use(express.json());
 
 const HTTP_PORT = process.env.PORT || 8080;
 
+app.get("/", (req, res) => {
+    res.json({"success": true})
+})
 
 app.post("/user/register", (req, res) => {
     userService.registerUser(req.body)

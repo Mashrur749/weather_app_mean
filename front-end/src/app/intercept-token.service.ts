@@ -15,7 +15,7 @@ export class InterceptTokenService implements HttpInterceptor {
   // Methods
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+    console.log(request);
     // Clone the existing request, and add the authorization header
     request = request.clone({
       setHeaders: {
