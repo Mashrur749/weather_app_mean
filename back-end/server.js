@@ -1,15 +1,48 @@
 const express = require("express");
 const cors = require("cors");
-const dataService = require("./data-service.js");
 const userService = require("./user-service.js");
 const app = express();
 const bodyParser = require('body-parser');
 
-var jwt = require('jsonwebtoken');)
+var jwt = require('jsonwebtoken');
+
+var passport = require("passport");
+var passportJWT = require("passport-jwt");
+
 var token = jwt.sign({ userName: 'mashrur' }, 'secret');
-var passport = require("passport");) 
+
+// JSON Web Token Setup
+var ExtractJwt = passportJWT.ExtractJwt;
+var JwtStrategy = passportJWT.Strategy;
+
+// Configure its options
+var jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
+
+jwtOptions.secretOrKey = '&0y7$noP#5rt99&GB%Pz7j2b1vkzaB0RKs%^N^0zOP89NT04mPuaM!&G8cbNZOtH';
+
+var strategy = new JwtStrategy(jwtOptions, function (jwt_payload, next) {
+    console.log('payload received', jwt_payload);
+
+    if (jwt_payload) {
+        // The following will ensure that all routes using 
+        // passport.authenticate have a req.user._id, req.user.userName, req.user.fullName & req.user.role values 
+        // that matches the request payload data
+        next(null, { 
+            _id: jwt_payload._id, 
+            userName: jwt_payload.userName,
+            cityId: jwt_payload.cityId 
+        }); 
+    } else {
+        next(null, false);
+    }
+});
 
 
+// tell passport to use our "strategy"
+passport.use(strategy);
+
+// add passport as application-level middleware
 app.use(passport.initialize());
 
 app.use(cors());
@@ -34,7 +67,20 @@ app.post("/user/register", (req, res) => {
 app.post("/user/login", (req, res) => {
     userService.checkUser(req.body)
         .then((user) => {
-            res.json({ "message": "login successful" });
+
+            var payload = { 
+                _id: user._id,
+                userName: user.userName,
+                cityId: user.cityId
+            };
+            
+            var token = jwt.sign(payload, jwtOptions.secretOrKey);
+
+            res.json({ 
+                "message": "login successful",
+                token: token 
+            });
+
         }).catch((msg) => {
             res.status(422).json({ "message": msg });
         });
@@ -49,6 +95,9 @@ app.put("/user/:id", (req, res) => {
         });
 });
 
+app.get("/dashboard", passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json({"success": true})
+})
 
 
 app.use((req, res) => {
