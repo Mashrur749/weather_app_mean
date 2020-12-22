@@ -65,7 +65,7 @@ module.exports.registerUser =  function (userData) {
 
 module.exports.updateUserById = function(userId, cityId){
     return new Promise(function (resolve, reject) {
-        User.findOneAndUpdate({_id: userId}, {cityId: cityId}, (err, user) => {
+        User.findOneAndUpdate({_id: userId}, {cityId: cityId}, {new: true}, (err, user) => {
             if(err){
                 console.log(err)
                 reject(err);
