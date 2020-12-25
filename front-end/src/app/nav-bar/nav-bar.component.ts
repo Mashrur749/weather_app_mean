@@ -12,7 +12,7 @@ import { Router, Event, NavigationStart } from "@angular/router"
 
 export class NavBarComponent implements OnInit {
 
-  @Input() isLoggedIn:boolean;
+  isLoggedIn:boolean;
   userName:string;
   public token: any;
 
@@ -33,11 +33,20 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.auth.isAuthenticated();
-    this.userName = this.auth.readToken().userName;
+    if(this.isLoggedIn){
+      this.userName = this.auth.readToken().userName;
+    }
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) { // only read the token on "NavigationStart"
         console.log("Route event triggered")
         this.token = this.auth.readToken();
+
+        if(this.isLoggedIn){          
+          this.userName = this.auth.readToken().userName
+        }else{
+          this.userName = ""
+        }
+
       }
     });
   }

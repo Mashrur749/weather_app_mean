@@ -7,7 +7,7 @@ const helper = new JwtHelperService();
 
 import {User} from './User';
 
-let userURL = "http://localhost:8080/user"
+let userURL = "http://ec2-18-222-62-105.us-east-2.compute.amazonaws.com/user"
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +55,4 @@ export class AuthService {
   logout(){
     localStorage.removeItem('access_token');
   }
-
-
 }

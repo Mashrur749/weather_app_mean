@@ -48,7 +48,10 @@ export class DashboardComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
+    this.weatherDataSub = 
+      this.data.getWeatherData(this.currCity.lon, this.currCity.lat)
+        .subscribe(data => this.weatherData = data);
+    
     this.currCity = this.getCityById(this.auth.readToken().cityId);
   }
   ngOnDestroy(){
