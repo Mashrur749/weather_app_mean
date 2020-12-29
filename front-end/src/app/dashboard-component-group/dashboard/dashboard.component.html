@@ -15,9 +15,9 @@
     </div>
 </div>
 
-<app-weather-current [currWeather]="this.weatherData.current"></app-weather-current>
+<app-weather-current *ngIf="this.isDataAvailable" [currWeather]="this.weatherData.current"></app-weather-current>
 
 <div class="weather-tables">    
-    <app-weather-hourly [hourlyWeather]="this.weatherData.hourly"></app-weather-hourly>
-    <app-weather-daily [dailyWeather]="this.weatherData.daily"></app-weather-daily>
+    <app-weather-hourly *ngIf="this.isDataAvailable" [hourlyWeather]="this.weatherData.hourly"></app-weather-hourly>
+    <app-weather-daily *ngIf="this.isDataAvailable" [dailyWeather]="this.weatherData.daily"></app-weather-daily>
 </div>

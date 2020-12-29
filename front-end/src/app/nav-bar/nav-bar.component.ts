@@ -41,8 +41,9 @@ export class NavBarComponent implements OnInit {
         console.log("Route event triggered")
         this.token = this.auth.readToken();
 
-        if(this.isLoggedIn){          
-          this.userName = this.auth.readToken().userName
+        if(this.auth.isAuthenticated()){
+          this.userName = this.auth.readToken().userName;
+          console.log("got the user name: ", this.userName)
         }else{
           this.userName = ""
         }

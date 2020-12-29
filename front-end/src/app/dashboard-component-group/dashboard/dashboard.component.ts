@@ -10,12 +10,15 @@ import cityData from "../../data/cities.json"
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  isDataAvailable:boolean = false;
   weatherData;
   private weatherDataSub; 
   cities = cityData;
   currCity = this.getCityById(this.auth.readToken().cityId);
 
+  constructor(private data: WeatherDataManagerService, private auth: AuthService) {
+  }
+  
   
   setCity(e){
     this.weatherDataSub = this.data.getWeatherData(this.currCity.lon, this.currCity.lat).subscribe(data => this.weatherData = data);
@@ -28,7 +31,6 @@ export class DashboardComponent implements OnInit {
         (data)=> {
           // store the returned token in local storage as 'access_token'
           localStorage.setItem('access_token', data.token);
-          console.log(this.auth.readToken())
         },
       );
   }
@@ -38,19 +40,18 @@ export class DashboardComponent implements OnInit {
     this.cities.forEach((e,idx) => {
       if(e.id == id){
         foundCity = e;
-        console.log("found city", foundCity)
       }
     })
     return foundCity;
   }
 
-  constructor(private data: WeatherDataManagerService, private auth: AuthService) {
-  }
-  
   ngOnInit(): void {
     this.weatherDataSub = 
       this.data.getWeatherData(this.currCity.lon, this.currCity.lat)
-        .subscribe(data => this.weatherData = data);
+        .subscribe(data => {
+          this.weatherData = data;
+          this.isDataAvailable = true;
+        });
     
     this.currCity = this.getCityById(this.auth.readToken().cityId);
   }
